@@ -1,0 +1,61 @@
+services:
+  # -------------------------------------------------------------
+  # Official Firefly III Accounting Core (Unmodified)
+  # -------------------------------------------------------------
+  firefly-db:
+    image: mariadb:11
+    container_name: expenseguard-firefly-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root_firefly_pw
+      MYSQL_DATABASE: ${FIREFLY_DB_DATABASE:-firefly}
+      MYSQL_USER: ${FIREFLY_DB_USERNAME:-firefly}
+      MYSQL_PASSWORD: ${FIREFLY_DB_PASSWORD:-firefly_secret_pw}
+    volumes:
+      - firefly_db_data:/var/lib/mysql
+    networks:
+      - expenseguard-net
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  firefly:
+    image: fireflyiii/core:latest
+    container_name: expenseguard-firefly-core
+    restart: unless-stopped
+    depends_on:
+      firefly-db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "false"
+      APP_KEY: ${FIREFLY_APP_KEY:-SomeRandomStringOf32Characters!!}
+      APP_URL: ${FIREFLY_EXTERNAL_URL:-http://localhost:8080}
+      TRUSTED_PROXIES: "**"
+      DB_CONNECTION: mysql
+      DB_HOST: firefly-db
+      DB_PORT: 3306
+      DB_DATABASE: ${FIREFLY_DB_DATABASE:-firefly}
+      DB_USERNAME: ${FIREFLY_DB_USERNAME:-firefly}
+      DB_PASSWORD: ${FIREFLY_DB_PASSWORD:-firefly_secret_pw}
+      MAIL_MAILER: smtp
+      MAIL_HOST: mailhog
+      MAIL_PORT: 1025
+      MAIL_FROM_ADDRESS: firefly@expenseguard.local
+      MAIL_FROM_NAME: FireflyIII
+    volumes:
+      - firefly_upload_data:/var/www/html/storage/upload
+    networks:
+      - expenseguard-net
+
+volumes:
+  firefly_db_data:
+  firefly_upload_data:
+
+networks:
+  expenseguard-net:
+    driver: bridge

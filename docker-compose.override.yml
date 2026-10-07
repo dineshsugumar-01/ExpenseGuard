@@ -1,0 +1,95 @@
+services:
+  # -------------------------------------------------------------
+  # ExpenseGuard Bridge Database (PostgreSQL 16)
+  # -------------------------------------------------------------
+  bridge-db:
+    image: postgres:16-alpine
+    container_name: expenseguard-bridge-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${BRIDGE_DB_USER:-expenseguard}
+      POSTGRES_PASSWORD: ${BRIDGE_DB_PASSWORD:-expenseguard_secret_pw}
+      POSTGRES_DB: ${BRIDGE_DB_NAME:-expenseguard}
+    ports:
+      - "5432:5432"
+    volumes:
+      - bridge_db_data:/var/lib/postgresql/data
+    networks:
+      - expenseguard-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${BRIDGE_DB_USER:-expenseguard} -d ${BRIDGE_DB_NAME:-expenseguard}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # -------------------------------------------------------------
+  # MailHog (Development SMTP testing)
+  # -------------------------------------------------------------
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: expenseguard-mailhog
+    restart: unless-stopped
+    ports:
+      - "1025:1025" # SMTP port
+      - "8025:8025" # Web UI
+    networks:
+      - expenseguard-net
+
+  # -------------------------------------------------------------
+  # ExpenseGuard Bridge API & ML Anomaly Engine (FastAPI)
+  # -------------------------------------------------------------
+  bridge:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: expenseguard-bridge-api
+    restart: unless-stopped
+    depends_on:
+      bridge-db:
+        condition: service_healthy
+      firefly:
+        condition: service_started
+    ports:
+      - "8000:8000"
+    environment:
+      PROJECT_NAME: ExpenseGuard
+      ENVIRONMENT: production
+      DATABASE_URL: postgresql+asyncpg://${BRIDGE_DB_USER:-expenseguard}:${BRIDGE_DB_PASSWORD:-expenseguard_secret_pw}@bridge-db:5432/${BRIDGE_DB_NAME:-expenseguard}
+      DATABASE_URL_SYNC: postgresql://${BRIDGE_DB_USER:-expenseguard}:${BRIDGE_DB_PASSWORD:-expenseguard_secret_pw}@bridge-db:5432/${BRIDGE_DB_NAME:-expenseguard}
+      FIREFLY_SITE_URL: http://firefly:8080
+      FIREFLY_API_TOKEN: ${FIREFLY_API_TOKEN:-}
+      FIREFLY_WEBHOOK_SECRET: ${FIREFLY_WEBHOOK_SECRET:-expenseguard_webhook_secret_key_123}
+      SECRET_KEY: ${SECRET_KEY:-expenseguard_super_secret_jwt_key_change_in_production}
+      SMTP_HOST: mailhog
+      SMTP_PORT: 1025
+      SMTP_FROM: alerts@expenseguard.local
+      DEFAULT_CURRENCY: ${DEFAULT_CURRENCY:-INR}
+      APPROVAL_LIMIT: ${APPROVAL_LIMIT:-10000.0}
+    volumes:
+      - ./backend/models_data:/app/models_data
+    networks:
+      - expenseguard-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  # -------------------------------------------------------------
+  # ExpenseGuard Dashboard (Horizon UI Tailwind React)
+  # -------------------------------------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: expenseguard-frontend
+    restart: unless-stopped
+    depends_on:
+      - bridge
+    ports:
+      - "3000:80"
+    networks:
+      - expenseguard-net
+
+volumes:
+  bridge_db_data:

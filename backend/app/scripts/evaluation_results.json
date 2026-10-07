@@ -1,0 +1,30 @@
+[
+  {
+    "strategy": "Rules Only",
+    "precision": 0.093,
+    "recall": 0.98,
+    "f1": 0.17,
+    "pr_auc": 0.403
+  },
+  {
+    "strategy": "ECOD Only",
+    "precision": 0.134,
+    "recall": 0.74,
+    "f1": 0.227,
+    "pr_auc": 0.362
+  },
+  {
+    "strategy": "Isolation Forest Only",
+    "precision": 0.148,
+    "recall": 0.9,
+    "f1": 0.254,
+    "pr_auc": 0.592
+  },
+  {
+    "strategy": "Full Hybrid (ExpenseGuard)",
+    "precision": 0.101,
+    "recall": 1.0,
+    "f1": 0.183,
+    "pr_auc": 0.527
+  }
+]

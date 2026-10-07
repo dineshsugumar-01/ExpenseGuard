@@ -1,0 +1,252 @@
+[
+  {
+    "firefly_group_id": "tx_anom_00001",
+    "is_anomaly": true,
+    "anomaly_type": "AMOUNT_SPIKE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00002",
+    "is_anomaly": true,
+    "anomaly_type": "EXACT_DUPLICATE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00003",
+    "is_anomaly": true,
+    "anomaly_type": "JUST_UNDER_LIMIT"
+  },
+  {
+    "firefly_group_id": "tx_anom_00004",
+    "is_anomaly": true,
+    "anomaly_type": "OFF_HOURS_WEEKEND"
+  },
+  {
+    "firefly_group_id": "tx_anom_00005",
+    "is_anomaly": true,
+    "anomaly_type": "SPLIT_CLAIM"
+  },
+  {
+    "firefly_group_id": "tx_anom_00006",
+    "is_anomaly": true,
+    "anomaly_type": "NEW_VENDOR_HIGH"
+  },
+  {
+    "firefly_group_id": "tx_anom_00007",
+    "is_anomaly": true,
+    "anomaly_type": "AMOUNT_SPIKE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00008",
+    "is_anomaly": true,
+    "anomaly_type": "EXACT_DUPLICATE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00009",
+    "is_anomaly": true,
+    "anomaly_type": "JUST_UNDER_LIMIT"
+  },
+  {
+    "firefly_group_id": "tx_anom_00010",
+    "is_anomaly": true,
+    "anomaly_type": "OFF_HOURS_WEEKEND"
+  },
+  {
+    "firefly_group_id": "tx_anom_00011",
+    "is_anomaly": true,
+    "anomaly_type": "SPLIT_CLAIM"
+  },
+  {
+    "firefly_group_id": "tx_anom_00012",
+    "is_anomaly": true,
+    "anomaly_type": "NEW_VENDOR_HIGH"
+  },
+  {
+    "firefly_group_id": "tx_anom_00013",
+    "is_anomaly": true,
+    "anomaly_type": "AMOUNT_SPIKE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00014",
+    "is_anomaly": true,
+    "anomaly_type": "EXACT_DUPLICATE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00015",
+    "is_anomaly": true,
+    "anomaly_type": "JUST_UNDER_LIMIT"
+  },
+  {
+    "firefly_group_id": "tx_anom_00016",
+    "is_anomaly": true,
+    "anomaly_type": "OFF_HOURS_WEEKEND"
+  },
+  {
+    "firefly_group_id": "tx_anom_00017",
+    "is_anomaly": true,
+    "anomaly_type": "SPLIT_CLAIM"
+  },
+  {
+    "firefly_group_id": "tx_anom_00018",
+    "is_anomaly": true,
+    "anomaly_type": "NEW_VENDOR_HIGH"
+  },
+  {
+    "firefly_group_id": "tx_anom_00019",
+    "is_anomaly": true,
+    "anomaly_type": "AMOUNT_SPIKE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00020",
+    "is_anomaly": true,
+    "anomaly_type": "EXACT_DUPLICATE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00021",
+    "is_anomaly": true,
+    "anomaly_type": "JUST_UNDER_LIMIT"
+  },
+  {
+    "firefly_group_id": "tx_anom_00022",
+    "is_anomaly": true,
+    "anomaly_type": "OFF_HOURS_WEEKEND"
+  },
+  {
+    "firefly_group_id": "tx_anom_00023",
+    "is_anomaly": true,
+    "anomaly_type": "SPLIT_CLAIM"
+  },
+  {
+    "firefly_group_id": "tx_anom_00024",
+    "is_anomaly": true,
+    "anomaly_type": "NEW_VENDOR_HIGH"
+  },
+  {
+    "firefly_group_id": "tx_anom_00025",
+    "is_anomaly": true,
+    "anomaly_type": "AMOUNT_SPIKE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00026",
+    "is_anomaly": true,
+    "anomaly_type": "EXACT_DUPLICATE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00027",
+    "is_anomaly": true,
+    "anomaly_type": "JUST_UNDER_LIMIT"
+  },
+  {
+    "firefly_group_id": "tx_anom_00028",
+    "is_anomaly": true,
+    "anomaly_type": "OFF_HOURS_WEEKEND"
+  },
+  {
+    "firefly_group_id": "tx_anom_00029",
+    "is_anomaly": true,
+    "anomaly_type": "SPLIT_CLAIM"
+  },
+  {
+    "firefly_group_id": "tx_anom_00030",
+    "is_anomaly": true,
+    "anomaly_type": "NEW_VENDOR_HIGH"
+  },
+  {
+    "firefly_group_id": "tx_anom_00031",
+    "is_anomaly": true,
+    "anomaly_type": "AMOUNT_SPIKE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00032",
+    "is_anomaly": true,
+    "anomaly_type": "EXACT_DUPLICATE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00033",
+    "is_anomaly": true,
+    "anomaly_type": "JUST_UNDER_LIMIT"
+  },
+  {
+    "firefly_group_id": "tx_anom_00034",
+    "is_anomaly": true,
+    "anomaly_type": "OFF_HOURS_WEEKEND"
+  },
+  {
+    "firefly_group_id": "tx_anom_00035",
+    "is_anomaly": true,
+    "anomaly_type": "SPLIT_CLAIM"
+  },
+  {
+    "firefly_group_id": "tx_anom_00036",
+    "is_anomaly": true,
+    "anomaly_type": "NEW_VENDOR_HIGH"
+  },
+  {
+    "firefly_group_id": "tx_anom_00037",
+    "is_anomaly": true,
+    "anomaly_type": "AMOUNT_SPIKE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00038",
+    "is_anomaly": true,
+    "anomaly_type": "EXACT_DUPLICATE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00039",
+    "is_anomaly": true,
+    "anomaly_type": "JUST_UNDER_LIMIT"
+  },
+  {
+    "firefly_group_id": "tx_anom_00040",
+    "is_anomaly": true,
+    "anomaly_type": "OFF_HOURS_WEEKEND"
+  },
+  {
+    "firefly_group_id": "tx_anom_00041",
+    "is_anomaly": true,
+    "anomaly_type": "SPLIT_CLAIM"
+  },
+  {
+    "firefly_group_id": "tx_anom_00042",
+    "is_anomaly": true,
+    "anomaly_type": "NEW_VENDOR_HIGH"
+  },
+  {
+    "firefly_group_id": "tx_anom_00043",
+    "is_anomaly": true,
+    "anomaly_type": "AMOUNT_SPIKE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00044",
+    "is_anomaly": true,
+    "anomaly_type": "EXACT_DUPLICATE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00045",
+    "is_anomaly": true,
+    "anomaly_type": "JUST_UNDER_LIMIT"
+  },
+  {
+    "firefly_group_id": "tx_anom_00046",
+    "is_anomaly": true,
+    "anomaly_type": "OFF_HOURS_WEEKEND"
+  },
+  {
+    "firefly_group_id": "tx_anom_00047",
+    "is_anomaly": true,
+    "anomaly_type": "SPLIT_CLAIM"
+  },
+  {
+    "firefly_group_id": "tx_anom_00048",
+    "is_anomaly": true,
+    "anomaly_type": "NEW_VENDOR_HIGH"
+  },
+  {
+    "firefly_group_id": "tx_anom_00049",
+    "is_anomaly": true,
+    "anomaly_type": "AMOUNT_SPIKE"
+  },
+  {
+    "firefly_group_id": "tx_anom_00050",
+    "is_anomaly": true,
+    "anomaly_type": "EXACT_DUPLICATE"
+  }
+]

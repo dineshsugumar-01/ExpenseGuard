@@ -1,48 +1,46 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div className="flex w-full flex-col items-center justify-between px-1 pb-8 pt-3 lg:px-8 xl:flex-row">
-      <h5 className="mb-4 text-center text-sm font-medium text-gray-600 sm:!mb-0 md:text-lg">
-        <p className="mb-4 text-center text-sm text-gray-600 sm:!mb-0 md:text-base">
-          ©{1900 + new Date().getYear()} Horizon UI. All Rights Reserved.
+      <h5 className="mb-4 text-center text-sm font-medium text-gray-600 sm:!mb-0 md:text-sm">
+        <p className="mb-4 text-center text-sm text-gray-500 sm:!mb-0">
+          ©{1900 + new Date().getYear()} ExpenseGuard. Continuous Anomaly Detection & Expense Management.
         </p>
       </h5>
       <div>
-        <ul className="flex flex-wrap items-center gap-3 sm:flex-nowrap md:gap-10">
+        <ul className="flex flex-wrap items-center gap-3 sm:flex-nowrap md:gap-8">
           <li>
-            <a
-              target="blank"
-              href="mailto:hello@simmmple.com"
-              className="text-base font-medium text-gray-600 hover:text-gray-600"
+            <Link
+              to="/admin/default"
+              className="text-sm font-medium text-gray-500 hover:text-brand-500 dark:text-gray-400 dark:hover:text-white"
             >
-              Support
-            </a>
+              Overview
+            </Link>
           </li>
           <li>
-            <a
-              target="blank"
-              href="https://simmmple.com/licenses"
-              className="text-base font-medium text-gray-600 hover:text-gray-600"
+            <Link
+              to="/admin/review-queue"
+              className="text-sm font-medium text-gray-500 hover:text-brand-500 dark:text-gray-400 dark:hover:text-white"
             >
-              License
-            </a>
+              Review Queue
+            </Link>
           </li>
           <li>
-            <a
-              target="blank"
-              href="https://simmmple.com/terms-of-service"
-              className="text-base font-medium text-gray-600 hover:text-gray-600"
+            <Link
+              to="/admin/rules"
+              className="text-sm font-medium text-gray-500 hover:text-brand-500 dark:text-gray-400 dark:hover:text-white"
             >
-              Terms of Use
-            </a>
+              Policy Rules
+            </Link>
           </li>
           <li>
-            <a
-              target="blank"
-              href="https://blog.horizon-ui.com/"
-              className="text-base font-medium text-gray-600 hover:text-gray-600"
+            <Link
+              to="/admin/models"
+              className="text-sm font-medium text-gray-500 hover:text-brand-500 dark:text-gray-400 dark:hover:text-white"
             >
-              Blog
-            </a>
+              PyOD Ensembles
+            </Link>
           </li>
         </ul>
       </div>

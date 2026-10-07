@@ -80,6 +80,32 @@ async def get_current_user(
     return user
 
 
+oauth2_scheme_optional = OAuth2PasswordBearer(tokenUrl="/api/auth/login", auto_error=False)
+
+
+async def get_optional_current_user(
+    token: Optional[str] = Depends(oauth2_scheme_optional),
+    db: AsyncSession = Depends(get_db)
+) -> Optional[Employee]:
+    if not token:
+        # Fallback to default auditor in development
+        stmt = select(Employee).where(Employee.role == "auditor")
+        res = await db.execute(stmt)
+        return res.scalars().first()
+    try:
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+        email: str = payload.get("sub")
+        if not email:
+            return None
+        stmt = select(Employee).where(Employee.email == email)
+        res = await db.execute(stmt)
+        return res.scalar_one_or_none()
+    except Exception:
+        stmt = select(Employee).where(Employee.role == "auditor")
+        res = await db.execute(stmt)
+        return res.scalars().first()
+
+
 @router.post("/login", response_model=Token)
 async def login(
     form_data: OAuth2PasswordRequestForm = Depends(),

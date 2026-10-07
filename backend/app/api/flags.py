@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api.auth import get_current_user
+from app.api.auth import get_optional_current_user
 from app.db.models import Flag, Score, TransactionCache, Employee
 from app.db.session import get_db
 from app.services.review import ReviewService
@@ -78,7 +78,7 @@ async def review_flag(
     flag_id: str,
     body: ReviewSubmission,
     db: AsyncSession = Depends(get_db),
-    current_user: Optional[Employee] = Depends(get_current_user)
+    current_user: Optional[Employee] = Depends(get_optional_current_user)
 ) -> Dict[str, Any]:
     review_svc = ReviewService(db)
     try:

@@ -4,7 +4,7 @@ FROM node:20-alpine AS build
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-# Use --legacy-peer-deps to handle React 19 / Chakra dependencies in horizon-tailwind-react
+# Install dependencies with legacy-peer-deps
 RUN npm install --legacy-peer-deps
 
 COPY . ./

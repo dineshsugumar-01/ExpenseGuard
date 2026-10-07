@@ -20,8 +20,8 @@ class AnomalyModelManager:
     """
 
     def __init__(self, models_dir: Optional[str] = None):
-        settings = get_settings()
-        self.models_dir = Path(models_dir or settings.MODELS_DIR)
+        self.settings = get_settings()
+        self.models_dir = Path(models_dir or self.settings.MODELS_DIR)
         self.models_dir.mkdir(parents=True, exist_ok=True)
         self.active_version: Optional[str] = None
         self.models: Dict[str, Any] = {}

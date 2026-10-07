@@ -83,38 +83,38 @@ const Navbar = (props) => {
                 </p>
               </div>
 
-              <button className="flex w-full items-center">
+              <div className="flex w-full items-center">
                 <div className="flex h-full w-[85px] items-center justify-center rounded-xl bg-gradient-to-b from-brandLinear to-brand-500 py-4 text-2xl text-white">
                   <BsArrowBarUp />
                 </div>
                 <div className="ml-2 flex h-full w-full flex-col justify-center rounded-lg px-1 text-sm">
-                  <p className="mb-1 text-left text-base font-bold text-gray-900 dark:text-white">
-                    New Update: Horizon UI Dashboard PRO
+                  <p className="mb-1 text-left text-sm font-bold text-gray-900 dark:text-white">
+                    High Anomaly Alert
                   </p>
-                  <p className="font-base text-left text-xs text-gray-900 dark:text-white">
-                    A new update for your downloaded item is available!
+                  <p className="font-base text-left text-xs text-gray-500 dark:text-gray-400">
+                    Flight booking flagged with composite risk score of 94.
                   </p>
                 </div>
-              </button>
+              </div>
 
-              <button className="flex w-full items-center">
+              <div className="flex w-full items-center">
                 <div className="flex h-full w-[85px] items-center justify-center rounded-xl bg-gradient-to-b from-brandLinear to-brand-500 py-4 text-2xl text-white">
                   <BsArrowBarUp />
                 </div>
                 <div className="ml-2 flex h-full w-full flex-col justify-center rounded-lg px-1 text-sm">
-                  <p className="mb-1 text-left text-base font-bold text-gray-900 dark:text-white">
-                    New Update: Horizon UI Dashboard PRO
+                  <p className="mb-1 text-left text-sm font-bold text-gray-900 dark:text-white">
+                    PyOD Retrain Complete
                   </p>
-                  <p className="font-base text-left text-xs text-gray-900 dark:text-white">
-                    A new update for your downloaded item is available!
+                  <p className="font-base text-left text-xs text-gray-500 dark:text-gray-400">
+                    ECOD & IForest calibrated with auditor review feedback.
                   </p>
                 </div>
-              </button>
+              </div>
             </div>
           }
           classNames={"py-2 top-4 -left-[230px] md:-left-[440px] w-max"}
         />
-        {/* start Horizon PRO */}
+        {/* System Info Dropdown */}
         <Dropdown
           button={
             <p className="cursor-pointer">
@@ -122,36 +122,28 @@ const Navbar = (props) => {
             </p>
           }
           children={
-            <div className="flex w-[350px] flex-col gap-2 rounded-[20px] bg-white p-4 shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
-              <div
-                style={{
-                  backgroundImage: `url(${navbarimage})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundSize: "cover",
-                }}
-                className="mb-2 aspect-video w-full rounded-lg"
-              />
-              <a
-                target="blank"
-                href="https://horizon-ui.com/pro?ref=live-free-tailwind-react"
-                className="px-full linear flex cursor-pointer items-center justify-center rounded-xl bg-brand-500 py-[11px] font-bold text-white transition duration-200 hover:bg-brand-600 hover:text-white active:bg-brand-700 dark:bg-brand-400 dark:hover:bg-brand-300 dark:active:bg-brand-200"
+            <div className="flex w-[350px] flex-col gap-3 rounded-[20px] bg-white p-4 shadow-xl shadow-shadow-500 dark:!bg-navy-700 dark:text-white dark:shadow-none">
+              <div className="flex items-center gap-2 border-b border-gray-100 pb-2 dark:border-white/10">
+                <span className="flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                  ExpenseGuard Live Protection
+                </span>
+              </div>
+              <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                Continuous unsupervised anomaly detection for Firefly III corporate expense claims with combined ECOD + IForest scoring and configurable policy rules.
+              </p>
+              <Link
+                to="/admin/review-queue"
+                className="px-full linear flex cursor-pointer items-center justify-center rounded-xl bg-brand-500 py-[10px] text-sm font-bold text-white transition duration-200 hover:bg-brand-600 hover:text-white active:bg-brand-700 dark:bg-brand-400"
               >
-                Buy Horizon UI PRO
-              </a>
-              <a
-                target="blank"
-                href="https://horizon-ui.com/docs-tailwind/docs/react/installation?ref=live-free-tailwind-react"
-                className="px-full linear flex cursor-pointer items-center justify-center rounded-xl border py-[11px] font-bold text-navy-700 transition duration-200 hover:bg-gray-200 hover:text-navy-700 dark:!border-white/10 dark:text-white dark:hover:bg-white/20 dark:hover:text-white dark:active:bg-white/10"
+                Open Review Queue
+              </Link>
+              <Link
+                to="/admin/models"
+                className="px-full linear flex cursor-pointer items-center justify-center rounded-xl border border-gray-200 py-[10px] text-sm font-bold text-navy-700 transition duration-200 hover:bg-gray-100 hover:text-navy-700 dark:!border-white/10 dark:text-white dark:hover:bg-white/10"
               >
-                See Documentation
-              </a>
-              <a
-                target="blank"
-                href="https://horizon-ui.com/?ref=live-free-tailwind-react"
-                className="hover:bg-black px-full linear flex cursor-pointer items-center justify-center rounded-xl py-[11px] font-bold text-navy-700 transition duration-200 hover:text-navy-700 dark:text-white dark:hover:text-white"
-              >
-                Try Horizon Free
-              </a>
+                Model Ensemble Status
+              </Link>
             </div>
           }
           classNames={"py-2 top-6 -left-[250px] md:-left-[330px] w-max"}
@@ -181,7 +173,7 @@ const Navbar = (props) => {
             <img
               className="h-10 w-10 rounded-full"
               src={avatar}
-              alt="Elon Musk"
+              alt="Auditor Avatar"
             />
           }
           children={
@@ -189,31 +181,32 @@ const Navbar = (props) => {
               <div className="p-4">
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-bold text-navy-700 dark:text-white">
-                    👋 Hey, Adela
-                  </p>{" "}
+                    Auditor (Admin)
+                  </p>
                 </div>
+                <p className="text-xs text-gray-400 mt-0.5">auditor@expenseguard.local</p>
               </div>
               <div className="h-px w-full bg-gray-200 dark:bg-white/20 " />
 
               <div className="flex flex-col p-4">
-                <a
-                  href=" "
-                  className="text-sm text-gray-800 dark:text-white hover:dark:text-white"
+                <Link
+                  to="/admin/rules"
+                  className="text-sm text-gray-800 dark:text-white hover:text-brand-500 hover:dark:text-brand-400"
                 >
-                  Profile Settings
-                </a>
-                <a
-                  href=" "
-                  className="mt-3 text-sm text-gray-800 dark:text-white hover:dark:text-white"
+                  Policy Settings
+                </Link>
+                <Link
+                  to="/admin/models"
+                  className="mt-3 text-sm text-gray-800 dark:text-white hover:text-brand-500 hover:dark:text-brand-400"
                 >
-                  Newsletter Settings
-                </a>
-                <a
-                  href=" "
-                  className="mt-3 text-sm font-medium text-red-500 hover:text-red-500 transition duration-150 ease-out hover:ease-in"
+                  Model Settings
+                </Link>
+                <Link
+                  to="/auth/sign-in"
+                  className="mt-3 text-sm font-medium text-red-500 hover:text-red-600 transition duration-150 ease-out hover:ease-in"
                 >
-                  Log Out
-                </a>
+                  Sign In / Switch
+                </Link>
               </div>
             </div>
           }

@@ -84,12 +84,15 @@ class RetrainService:
             return train_result
 
         # Record in database
+        from app.config import get_settings
+        settings = get_settings()
+
         mv = ModelVersion(
             version_tag=version_tag,
             trained_at=datetime.utcnow(),
             training_rows=len(feat_df),
-            models_included=self.model_manager.settings.enabled_models_list,
-            contamination=self.model_manager.settings.CONTAMINATION,
+            models_included=settings.enabled_models_list,
+            contamination=settings.CONTAMINATION,
             metrics_json={
                 "training_rows": len(feat_df),
                 "confirmed_anomalies_excluded": confirmed_count,

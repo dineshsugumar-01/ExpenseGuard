@@ -1,7 +1,7 @@
 # ExpenseGuard 🛡️
 
 > **Intelligent Expense Management & Unsupervised Anomaly Detection System**  
-> Audits corporate claims, scores fraud/error risk with unsupervised machine learning (PyOD) and deterministic policy rules, explains findings in plain language, and provides a continuous auditor feedback loop in a modern fintech dashboard built with [Horizon UI Tailwind React](https://github.com/horizon-ui/horizon-tailwind-react).
+> Audits corporate claims, scores fraud/error risk with unsupervised machine learning (PyOD) and deterministic policy rules, explains findings in plain language, and provides a continuous auditor feedback loop in a modern fintech dashboard built with React and Tailwind CSS.
 
 ---
 
@@ -41,7 +41,7 @@ Evaluated on 1,000 corporate expense transactions with 5.0% injected labeled ano
                                     │ HTTPS
                     ┌───────────────▼───────────────┐
                     │  ExpenseGuard Dashboard (SPA) │
-                    │  Horizon UI Tailwind React    │
+                    │  React + Tailwind Audit UI    │
                     │  Port 3000                    │
                     └───────────────┬───────────────┘
                                     │ REST + JWT
@@ -90,7 +90,7 @@ Evaluated on 1,000 corporate expense transactions with 5.0% injected labeled ano
    docker compose up -d
    ```
 4. Access the services:
-   - **Horizon UI Dashboard**: [http://localhost:3000](http://localhost:3000)
+   - **ExpenseGuard Dashboard**: [http://localhost:3000](http://localhost:3000)
    - **FastAPI Bridge Docs**: [http://localhost:8000/docs](http://localhost:8000/docs)
    - **MailHog Alert Mailbox**: [http://localhost:8025](http://localhost:8025)
    - **Firefly III Accounting Core**: [http://localhost:8080](http://localhost:8080)
